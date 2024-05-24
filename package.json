@@ -1,0 +1,55 @@
+{
+  "name": "mettajs",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "env:dev": "dotenv -e .env.dev",
+    "env:prod": "dotenv -e .env.prod",
+    "dev:server": "bun env:dev -- tsx watch ./src/server | pino-pretty",
+    "dev:client": "bun env:dev vite",
+    "dev": "concurrently 'bun dev:server' 'bun dev:client'",
+    "build": "vite build",
+    "preview": "NODE_ENV=production tsx ./src/server",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@types/node": "^18.19.14",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@fastify/middie": "^8.3.1",
+    "@fastify/static": "^7.0.4",
+    "@tawasukha/rbac": "^0.1.0",
+    "@trpc/client": "^10.45.2",
+    "@trpc/server": "^10.45.2",
+    "@vitejs/plugin-react": "^4.2.1",
+    "cross-fetch": "^4.0.0",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.2",
+    "fastify": "^4.27.0",
+    "pino-pretty": "^11.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.10.5",
+    "vike": "^0.4.171",
+    "vike-react": "^0.4.10",
+    "vite": "^5.2.11",
+    "zod": "^3.23.8"
+  },
+  "prettier": {
+    "semi": false
+  }
+}
