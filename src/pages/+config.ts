@@ -1,13 +1,22 @@
-import vikeReact from "vike-react/config";
-import type { Config } from "vike/types";
-import Head from "../layouts/HeadDefault.js";
-import Layout from "../layouts/LayoutDefault.js";
+import vikeReact from "vike-react/config"
+import type { Config } from "vike/types"
+import Head from "@/components/layout/HeadDefault"
+import Layout from "@/components/layout/LayoutDefault"
+import { env } from "@/utils/env"
+import { onRenderHtml } from "@/renderer/onRenderHtml"
 
-// Default config (can be overridden by pages)
 export default {
   Layout,
   Head,
-  // <title>
-  title: "My Vike App",
+  onRenderHtml,
+  meta: {
+    theme: {
+      env: {
+        server: true,
+        client: true,
+      },
+    },
+  },
+  title: env.APP_TITLE,
   extends: vikeReact,
-} satisfies Config;
+} satisfies Config

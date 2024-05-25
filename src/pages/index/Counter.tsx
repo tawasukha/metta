@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import { usePageContext } from "@/hooks/usePageContext"
+import { trpc } from "@/trpc/client"
+import React, { useEffect, useState } from "react"
 
 export function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    ;(async () => {
+      await trpc.preference.setCookie.mutate({ theme: "dark", locale: "id" })
+    })()
+  }, [])
 
   return (
-    <button
-      type="button"
-      className="inline-block border border-black rounded bg-gray-200 px-2 py-1 text-xs font-medium uppercase leading-normal"
-      onClick={() => setCount((count) => count + 1)}
-    >
+    <button type="button" onClick={() => setCount((count) => count + 1)}>
       Counter {count}
     </button>
-  );
+  )
 }

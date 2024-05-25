@@ -21,7 +21,7 @@
       "vite/client",
       "vike-react"
     ],
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {

@@ -1,7 +1,7 @@
 import { env } from "@/utils/env"
 import { dirname } from "node:path"
 import { fileURLToPath } from "node:url"
-import { AppRouter, appRouter } from "@/trpc/server"
+import { appRouter } from "@/routes"
 import { Context, createContext } from "./context"
 import { renderPage } from "vike/server"
 import { RouteHandlerMethod } from "fastify"

@@ -15,7 +15,6 @@ export const appRouter = t.router({
       throw new Error("Input is not a string")
     })
     .mutation(async (opts) => {
-      opts.ctx.cookie.set("xxxx", "hello-world")
       todoItems.push({ text: opts.input })
       return { todoItems }
     }),
