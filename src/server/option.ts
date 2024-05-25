@@ -17,6 +17,21 @@ export const distClient = {
   wildcard: false,
 }
 
+export const cors = {
+  origin: new RegExp(`/${env.APP_HOSTNAME}/`),
+  credentials: true,
+}
+
+export const session = {
+  secret: `${env.APP_SECRET}`,
+  cookieName: `${env.APP_NAME}Session`,
+  cookie: {
+    secure: true,
+    domain: `.${env.APP_DOMAIN}`,
+    expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+  },
+}
+
 export const trpc = {
   prefix: "/api/trpc",
   trpcOptions: {

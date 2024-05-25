@@ -1,5 +1,6 @@
 import dotenv from "dotenv"
 import { z } from "zod"
+import { extractDomain } from "./helper"
 
 dotenv.config()
 
@@ -18,4 +19,6 @@ const url = new URL(data.VITE_HOST)
 export const env = {
   ...data,
   APP_PORT: +url.port,
+  APP_HOSTNAME: url.hostname,
+  APP_DOMAIN: extractDomain(data.VITE_HOST),
 }
